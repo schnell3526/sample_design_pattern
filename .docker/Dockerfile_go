@@ -1,0 +1,7 @@
+FROM golang:1.23
+
+WORKDIR /app
+
+ENTRYPOINT ["go", "run"]
+
+CMD ["main.go"]

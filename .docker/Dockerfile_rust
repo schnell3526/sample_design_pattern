@@ -1,0 +1,12 @@
+FROM rust:1
+
+WORKDIR /app
+
+ENTRYPOINT ["rust-runner"]
+
+CMD ["main.rs"]
+
+RUN echo '#!/bin/bash' > /usr/local/bin/rust-runner && \
+    echo 'rustc "$1" -o /tmp/rustapp && /tmp/rustapp' >> /usr/local/bin/rust-runner && \
+    chmod +x /usr/local/bin/rust-runner
+
